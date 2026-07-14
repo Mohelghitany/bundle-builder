@@ -4,7 +4,6 @@ A data-driven React prototype of a multi-step security-system bundle builder wit
 live review panel, backed by a small hardened Express API. Rebuilt from the Figma
 design with pixel-perfect desktop fidelity and full responsiveness down to a phone.
 
-![Desktop](docs/desktop.png)
 
 ## Highlights
 
