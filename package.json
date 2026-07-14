@@ -1,0 +1,16 @@
+{
+  "name": "bundle-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+    "scripts": {
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
