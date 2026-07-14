@@ -1,4 +1,26 @@
-.env
+# dependencies
 node_modules
-./client/node_modules
-./server/node_modules
+client/node_modules
+server/node_modules
+
+# env
+.env
+.env.*
+!.env.example
+
+# build output
+dist
+client/dist
+
+# logs
+*.log
+npm-debug.log*
+
+# editor / os
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# temporary design-research artifacts
+_figma_*
