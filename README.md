@@ -120,13 +120,7 @@ bundle-builder/
   variant selected, so the seeded view matches the design (no redundant labels) while
   Red-vs-Blue stays unambiguous when it matters.
 - **Font.** The design uses Gilroy (commercial). The app ships with Mulish, a close free
-  geometric sans, wired through a single `--font-sans` token — drop in licensed Gilroy
-  woff2 files and update that token to switch.
-- **JavaScript (not TypeScript)** to match the existing scaffold and keep it lean; the store
-  uses `useAppSelector`/`useAppDispatch` wrappers so a TS migration would be mechanical.
+  geometric sans, wired through a single `--font-sans` token.
 
-## Not included
 
-- No server-side persistence (save-for-later is client-side by design).
-- Checkout is a prototype confirmation toast, as specified.
 ```
