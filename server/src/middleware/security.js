@@ -15,7 +15,6 @@ function applySecurity(app) {
 
   const corsOptions = {
     origin(origin, callback) {
-      // Allow same-origin / non-browser clients (no Origin header).
       if (!origin) return callback(null, true);
       if (config.corsOrigins.includes(origin)) return callback(null, true);
       const error = new Error("Origin not allowed by CORS");

@@ -1,0 +1,39 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px 2px 3px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.chip:hover {
+  border-color: var(--color-muted-2);
+}
+
+.chip.active {
+  border-color: var(--color-purple);
+  box-shadow: inset 0 0 0 1px var(--color-purple);
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-ink);
+  white-space: nowrap;
+}

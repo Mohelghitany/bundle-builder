@@ -1,0 +1,49 @@
+.price {
+  display: inline-flex;
+  gap: 6px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.compare {
+  text-decoration: line-through;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.active {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Card tone */
+.card {
+  font-size: 14px;
+}
+
+.card .compare {
+  color: var(--color-red);
+}
+
+.card .active {
+  color: var(--color-ink);
+}
+
+/* Review tone */
+.review {
+  font-size: 14px;
+}
+
+.review .compare {
+  color: var(--color-muted-2);
+}
+
+.review .active {
+  color: var(--color-purple);
+}
+
+.free {
+  color: var(--color-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
