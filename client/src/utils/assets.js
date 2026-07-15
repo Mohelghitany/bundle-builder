@@ -36,3 +36,31 @@ export function getSwatchImage(key) {
 export function getIcon(key) {
   return key ? iconAssets[key] : undefined;
 }
+
+/**
+ * Resolves the image to show for a product/variant pair.
+ * - Plan products use their logo.
+ * - The default (first) variant keeps the high-res product hero image.
+ * - Other colors use the variant's `image` / swatch photo.
+ * - Review thumbs may fall back to the color swatch chip via preferSwatch.
+ */
+export function getProductDisplayImage(product, variant, { preferSwatch = false } = {}) {
+  if (!product) return undefined;
+  if (product.isPlan) return getIcon(product.logo);
+
+  const defaultVariantId = product.variants?.[0]?.id;
+  const isDefaultColor = Boolean(variant) && variant.id === defaultVariantId;
+
+  if (variant?.image && !isDefaultColor) {
+    const colorPhoto =
+      getSwatchImage(variant.image) || getProductImage(variant.image);
+    if (colorPhoto) return colorPhoto;
+  }
+
+  if (preferSwatch && variant?.swatch && !isDefaultColor) {
+    const swatch = getSwatchImage(variant.swatch);
+    if (swatch) return swatch;
+  }
+
+  return product.image ? getProductImage(product.image) : undefined;
+}

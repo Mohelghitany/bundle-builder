@@ -68,9 +68,9 @@
       "comparePrice": 35.98,
       "price": 27.98,
       "variants": [
-        { "id": "white", "label": "White", "swatch": "cam-v4-white" },
-        { "id": "grey", "label": "Grey", "swatch": "cam-v4-grey" },
-        { "id": "black", "label": "Black", "swatch": "cam-v4-black" }
+        { "id": "white", "label": "White", "swatch": "cam-v4-white", "image": "cam-v4-white" },
+        { "id": "grey", "label": "Grey", "swatch": "cam-v4-grey", "image": "cam-v4-grey" },
+        { "id": "black", "label": "Black", "swatch": "cam-v4-black", "image": "cam-v4-black" }
       ]
     },
     {
@@ -85,8 +85,8 @@
       "comparePrice": 39.98,
       "price": 34.98,
       "variants": [
-        { "id": "white", "label": "White", "swatch": "pan-v3-white" },
-        { "id": "black", "label": "Black", "swatch": "pan-v3-black" }
+        { "id": "white", "label": "White", "swatch": "pan-v3-white", "image": "pan-v3-white" },
+        { "id": "black", "label": "Black", "swatch": "pan-v3-black", "image": "pan-v3-black" }
       ]
     },
     {
@@ -101,8 +101,8 @@
       "comparePrice": 89.98,
       "price": 69.98,
       "variants": [
-        { "id": "white", "label": "White", "swatch": "floodlight-white" },
-        { "id": "black", "label": "Black", "swatch": "floodlight-black" }
+        { "id": "white", "label": "White", "swatch": "floodlight-white", "image": "floodlight-white" },
+        { "id": "black", "label": "Black", "swatch": "floodlight-black", "image": "floodlight-black" }
       ]
     },
     {
@@ -130,8 +130,8 @@
       "comparePrice": null,
       "price": 89.98,
       "variants": [
-        { "id": "white", "label": "White", "swatch": "battery-white" },
-        { "id": "black", "label": "Black", "swatch": "battery-black" }
+        { "id": "white", "label": "White", "swatch": "battery-white", "image": "battery-white" },
+        { "id": "black", "label": "Black", "swatch": "battery-black", "image": "battery-black" }
       ]
     },
     {

@@ -6,7 +6,7 @@ import {
   selectQty,
 } from "../../store/selectors";
 import { DEFAULT_VARIANT_ID } from "../../utils/selectionKey";
-import { getIcon, getProductImage } from "../../utils/assets";
+import { getProductDisplayImage } from "../../utils/assets";
 import Price from "../Price/Price";
 import QuantityStepper from "../QuantityStepper/QuantityStepper";
 import VariantSelector from "../VariantSelector/VariantSelector";
@@ -21,9 +21,9 @@ function ProductCard({ product, learnMoreLabel = "Learn More" }) {
   // Once a conditionally-required item is in the cart, keep at least 1.
   const minQty = requiredActive && activeQty > 0 ? 1 : 0;
 
-  const imageSrc = product.image
-    ? getProductImage(product.image)
-    : getIcon(product.logo);
+  const activeVariant =
+    product.variants?.find((variant) => variant.id === activeVariantId) ?? null;
+  const imageSrc = getProductDisplayImage(product, activeVariant);
 
   return (
     <article
@@ -39,8 +39,13 @@ function ProductCard({ product, learnMoreLabel = "Learn More" }) {
       <div className={styles.media}>
         {imageSrc && (
           <img
+            key={imageSrc}
             src={imageSrc}
-            alt={product.title}
+            alt={
+              activeVariant
+                ? `${product.title} \u2014 ${activeVariant.label}`
+                : product.title
+            }
             className={product.isPlan ? styles.logo : styles.image}
             loading="lazy"
           />

@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useAppSelector } from "../../store/hooks";
 import { selectIsProductRequiredActive } from "../../store/selectors";
-import { getIcon, getProductImage } from "../../utils/assets";
+import { getProductDisplayImage } from "../../utils/assets";
 import Price from "../Price/Price";
 import QuantityStepper from "../QuantityStepper/QuantityStepper";
 import styles from "./ReviewPanel.module.css";
@@ -20,9 +20,7 @@ function ReviewLine({ line, requiredTag, freeLabel }) {
   const requiredActive = useAppSelector(
     selectIsProductRequiredActive(product.id)
   );
-  const thumb = product.isPlan
-    ? getIcon(product.logo)
-    : getProductImage(product.image);
+  const thumb = getProductDisplayImage(product, variant, { preferSwatch: true });
   const minQty = requiredActive && line.qty > 0 ? 1 : 0;
 
   return (
@@ -30,6 +28,7 @@ function ReviewLine({ line, requiredTag, freeLabel }) {
       <span className={styles.thumb}>
         {thumb && (
           <img
+            key={thumb}
             src={thumb}
             alt=""
             className={product.isPlan ? styles.thumbLogo : styles.thumbImg}
