@@ -133,8 +133,6 @@ Notable responses:
 - **Variant color images.** Floodlight / Battery include full color photos; Cam v4 / Pan
   only have small swatch assets for non-default colors, so White keeps the high-res hero.
 - **Font.** Design uses Gilroy (commercial). The app ships Mulish behind `--font-sans`.
-- **JavaScript (not TypeScript)** to match the scaffold and keep the take-home lean;
-  `useAppDispatch` / `useAppSelector` wrappers keep a future TS migration mechanical.
 - **Duplicated domain helpers.** Client `utils/required.js` and server checkout validation
   intentionally mirror the same rules so offline UI still blocks bad checkout; a shared
   package would be the natural next refactor.
