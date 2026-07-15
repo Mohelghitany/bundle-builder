@@ -82,9 +82,20 @@
 }
 
 .learnMore {
+  display: inline;
+  padding: 0;
+  border: none;
+  background: none;
   color: var(--color-link);
+  font: inherit;
   font-weight: 700;
   white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.learnMore:hover {
+  text-decoration: underline;
 }
 
 .controls {

@@ -5,6 +5,7 @@ import {
   selectHasAnySelection,
   selectMeta,
   selectReviewGroups,
+  selectShipping,
   selectTotals,
 } from "../../store/selectors";
 import { formatPrice } from "../../utils/format";
@@ -18,13 +19,14 @@ function ReviewPanel() {
   const meta = useAppSelector(selectMeta);
   const groups = useAppSelector(selectReviewGroups);
   const totals = useAppSelector(selectTotals);
+  const shipping = useAppSelector(selectShipping);
   const hasSelection = useAppSelector(selectHasAnySelection);
   const checkoutStatus = useAppSelector(selectCheckoutStatus);
   const isCheckingOut = checkoutStatus === "loading";
 
   if (!meta) return null;
 
-  const { copy, guarantee, shipping } = meta;
+  const { copy, guarantee } = meta;
 
   const handleCheckout = () => {
     if (!hasSelection || isCheckingOut) return;
@@ -32,6 +34,15 @@ function ReviewPanel() {
   };
 
   const handleSave = () => dispatch(saveRequested());
+
+  const freeHint = !hasSelection
+    ? (copy.freeShippingHint || "Free shipping on orders ${threshold}+").replace(
+        "${threshold}",
+        String(shipping.freeAbove)
+      )
+    : shipping.isFree
+      ? "You unlocked free shipping"
+      : `Add ${formatPrice(shipping.remainingForFree)} more for free shipping`;
 
   return (
     <section className={styles.panel} aria-label={copy.reviewTitle}>
@@ -71,10 +82,15 @@ function ReviewPanel() {
           <span className={styles.thumb}>
             <img src={getIcon("shipping")} alt="" className={styles.shipIcon} />
           </span>
-          <span className={styles.name}>{shipping.label}</span>
+          <span className={styles.name}>
+            {shipping.label}
+            {freeHint && (
+              <span className={styles.shippingHint}>{freeHint}</span>
+            )}
+          </span>
           <span className={styles.linePrice}>
             <Price
-              price={shipping.price}
+              price={shipping.amount}
               comparePrice={shipping.comparePrice}
               tone="review"
               align="end"

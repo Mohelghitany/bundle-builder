@@ -139,22 +139,62 @@ export const selectReviewGroups = createSelector(
   }
 );
 
-export const selectTotals = createSelector(
-  selectReviewGroups,
-  selectMeta,
-  (groups, meta) => {
-    let activeTotal = 0;
-    let compareTotal = 0;
-    for (const group of groups) {
-      for (const line of group.lines) {
-        activeTotal += line.lineActive;
-        compareTotal += line.lineCompare;
-      }
+export const selectSubtotal = createSelector(selectReviewGroups, (groups) => {
+  let active = 0;
+  let compare = 0;
+  for (const group of groups) {
+    for (const line of group.lines) {
+      active += line.lineActive;
+      compare += line.lineCompare;
     }
+  }
+  return { active, compare };
+});
+
+/**
+ * Shipping is free when product subtotal is at/above freeAbove (default $50).
+ * Below that threshold the flat shipping.price applies.
+ */
+export const selectShipping = createSelector(
+  selectSubtotal,
+  selectMeta,
+  (subtotal, meta) => {
+    const config = meta?.shipping ?? {
+      label: "Fast Shipping",
+      price: 5.99,
+      freeAbove: 50,
+    };
+    const freeAbove = Number(config.freeAbove) || 50;
+    const rate = Number(config.price) || 0;
+    const qualifies = subtotal.active >= freeAbove;
+    const amount = qualifies ? 0 : rate;
+    return {
+      label: config.label || "Fast Shipping",
+      freeAbove,
+      rate,
+      amount,
+      isFree: amount === 0,
+      // When free, strike through the standard rate; when paid, no strike.
+      comparePrice: qualifies ? rate : null,
+      remainingForFree: Math.max(0, freeAbove - subtotal.active),
+    };
+  }
+);
+
+export const selectTotals = createSelector(
+  selectSubtotal,
+  selectShipping,
+  selectMeta,
+  (subtotal, shipping, meta) => {
+    const activeTotal = subtotal.active + shipping.amount;
+    const compareTotal =
+      subtotal.compare + (shipping.comparePrice ?? shipping.amount);
     const savings = Math.max(0, compareTotal - activeTotal);
     const financeMonths = meta?.financeMonths || 0;
     const financing = financeMonths > 0 ? activeTotal / financeMonths : 0;
     return {
+      subtotal: subtotal.active,
+      shipping: shipping.amount,
       activeTotal,
       compareTotal,
       savings,

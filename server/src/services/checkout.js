@@ -127,7 +127,16 @@ function processCheckout(body) {
     };
   }
 
-  const { items, total } = lineItems(selections, productById);
+  const { items, total: subtotal } = lineItems(selections, productById);
+
+  const shippingConfig = catalog.meta?.shipping || {
+    price: 5.99,
+    freeAbove: 50,
+  };
+  const freeAbove = Number(shippingConfig.freeAbove) || 50;
+  const shippingRate = Number(shippingConfig.price) || 0;
+  const shippingAmount = subtotal >= freeAbove ? 0 : shippingRate;
+  const total = subtotal + shippingAmount;
   const orderId = `wyze_${Date.now().toString(36)}`;
 
   return {
@@ -137,6 +146,9 @@ function processCheckout(body) {
       orderId,
       message: "Checkout confirmed.",
       items,
+      subtotal,
+      shipping: shippingAmount,
+      shippingFreeAbove: freeAbove,
       total,
       currency: catalog.meta?.currency || "USD",
     },

@@ -3,7 +3,11 @@
     "currency": "USD",
     "financeMonths": 10,
     "categoryOrder": ["Cameras", "Sensors", "Accessories", "Plan"],
-    "shipping": { "label": "Fast Shipping", "comparePrice": 5.99, "price": 0 },
+    "shipping": {
+      "label": "Fast Shipping",
+      "price": 5.99,
+      "freeAbove": 50
+    },
     "guarantee": {
       "title": "30-day hassle-free returns",
       "body": "If you're not totally in love with the product, we will refund you 100%."
@@ -18,7 +22,8 @@
       "requiredTag": "Required",
       "freeLabel": "FREE",
       "stepEyebrow": "STEP {index} OF {total}",
-      "selectedLabel": "{count} selected"
+      "selectedLabel": "{count} selected",
+      "freeShippingHint": "Free shipping on orders ${threshold}+"
     }
   },
   "steps": [
@@ -62,7 +67,22 @@
       "category": "Cameras",
       "title": "Wyze Cam v4",
       "description": "The clearest Wyze Cam ever made.",
-      "learnMoreUrl": "#",
+      "details": {
+        "summary": "Wyze Cam v4 delivers sharper day and night video with a brighter spotlight, Color Night Vision, and smarter person/pet/vehicle detection \u2014 built for indoor rooms that need a clear, always-on eye.",
+        "highlights": [
+          "2K QHD video with improved low-light clarity",
+          "Color Night Vision plus a built-in spotlight",
+          "Person, pet, and vehicle detection",
+          "Two-way audio and local or cloud recording options"
+        ],
+        "specs": [
+          { "label": "Resolution", "value": "2K QHD" },
+          { "label": "Field of view", "value": "Wide-angle indoor" },
+          { "label": "Night vision", "value": "Color Night Vision + IR" },
+          { "label": "Power", "value": "Wired (USB)" },
+          { "label": "Storage", "value": "microSD / Wyze Cam Unlimited" }
+        ]
+      },
       "image": "cam-v4",
       "badge": "Save 22%",
       "comparePrice": 35.98,
@@ -79,7 +99,22 @@
       "category": "Cameras",
       "title": "Wyze Cam Pan v3",
       "description": "360\u00b0 pan and 180\u00b0 tilt security camera.",
-      "learnMoreUrl": "#",
+      "details": {
+        "summary": "Cover every corner of a room with continuous pan and tilt, automatic tracking, and clear day/night video so moving pets, kids, or visitors never leave the frame.",
+        "highlights": [
+          "360\u00b0 pan and 180\u00b0 tilt coverage",
+          "PanScan and motion tracking",
+          "Color Night Vision",
+          "Works with Wyze Cam Unlimited and local storage"
+        ],
+        "specs": [
+          { "label": "Pan / tilt", "value": "360\u00b0 / 180\u00b0" },
+          { "label": "Resolution", "value": "1080p Full HD" },
+          { "label": "Tracking", "value": "Motion & person tracking" },
+          { "label": "Power", "value": "Wired (USB)" },
+          { "label": "Storage", "value": "microSD / Wyze Cam Unlimited" }
+        ]
+      },
       "image": "cam-pan-v3",
       "badge": "Save 12%",
       "comparePrice": 39.98,
@@ -95,7 +130,22 @@
       "category": "Cameras",
       "title": "Wyze Cam Floodlight v2",
       "description": "2K floodlight camera with a 160\u00b0 wide-angle view for your garage.",
-      "learnMoreUrl": "#",
+      "details": {
+        "summary": "Outdoor floodlight and security camera in one \u2014 bright LEDs light driveways and yards while 2K video and a wide field of view catch motion at the edge of your property.",
+        "highlights": [
+          "2K video with a 160\u00b0 wide-angle lens",
+          "Bright dual LED floodlights",
+          "Weather-resistant outdoor design",
+          "Motion-activated lighting and alerts"
+        ],
+        "specs": [
+          { "label": "Resolution", "value": "2K" },
+          { "label": "Field of view", "value": "160\u00b0" },
+          { "label": "Lighting", "value": "Dual LED floodlights" },
+          { "label": "Placement", "value": "Outdoor / garage / entry" },
+          { "label": "Power", "value": "Hardwired AC" }
+        ]
+      },
       "image": "floodlight-v2",
       "badge": "Save 22%",
       "comparePrice": 89.98,
@@ -111,7 +161,22 @@
       "category": "Cameras",
       "title": "Wyze Duo Cam Doorbell",
       "description": "Two cameras. Two views. Double the porch protection.",
-      "learnMoreUrl": "#",
+      "details": {
+        "summary": "A dual-lens video doorbell that watches both face-level visitors and package drop zones at your feet, so porch activity is covered from top to bottom.",
+        "highlights": [
+          "Dual cameras for face and package views",
+          "Crystal-clear doorbell video and two-way talk",
+          "Package-area monitoring at the doorstep",
+          "Instant visitor and motion alerts"
+        ],
+        "specs": [
+          { "label": "Cameras", "value": "Dual lens (visitor + package)" },
+          { "label": "Audio", "value": "Two-way talk" },
+          { "label": "Placement", "value": "Front door / porch" },
+          { "label": "Alerts", "value": "Visitor & motion notifications" },
+          { "label": "Storage", "value": "Cloud events / Cam Unlimited" }
+        ]
+      },
       "image": "duo-doorbell",
       "badge": null,
       "comparePrice": null,
@@ -124,7 +189,22 @@
       "category": "Cameras",
       "title": "Wyze Battery Cam Pro",
       "description": "Protect anywhere. See everything in 2.5K HDR. No power outlet or electrician needed.",
-      "learnMoreUrl": "#",
+      "details": {
+        "summary": "Wireless outdoor camera with 2.5K HDR video and long battery life \u2014 mount it where wires can't go without hiring an electrician.",
+        "highlights": [
+          "2.5K HDR video outdoors",
+          "Wire-free rechargeable battery",
+          "Weather-resistant for yards and entryways",
+          "AI event detection and optional spotlight"
+        ],
+        "specs": [
+          { "label": "Resolution", "value": "2.5K HDR" },
+          { "label": "Power", "value": "Rechargeable battery" },
+          { "label": "Placement", "value": "Outdoor / wireless mounting" },
+          { "label": "Night vision", "value": "Color + IR" },
+          { "label": "Storage", "value": "microSD / Wyze Cam Unlimited" }
+        ]
+      },
       "image": "battery-cam-pro",
       "badge": null,
       "comparePrice": null,
@@ -140,7 +220,22 @@
       "category": "Plan",
       "title": "Cam Unlimited",
       "description": "Unlimited cloud recording and event history for all your Wyze cameras.",
-      "learnMoreUrl": "#",
+      "details": {
+        "summary": "Cam Unlimited gives every camera in your account continuous or extended cloud recording, richer event history, and smarter detections without juggling per-camera fees.",
+        "highlights": [
+          "Cloud recording for all household cameras",
+          "Longer event history and richer clips",
+          "Person, pet, vehicle, and package detections",
+          "Simple monthly plan that scales with your system"
+        ],
+        "specs": [
+          { "label": "Billing", "value": "Monthly subscription" },
+          { "label": "Coverage", "value": "All cameras on the account" },
+          { "label": "Recording", "value": "Extended cloud history" },
+          { "label": "Detections", "value": "AI event categories" },
+          { "label": "Cancel anytime", "value": "Yes" }
+        ]
+      },
       "image": null,
       "logo": "wyze-mark",
       "isPlan": true,
@@ -156,7 +251,22 @@
       "category": "Sensors",
       "title": "Wyze Sense Motion Sensor",
       "description": "Get instant alerts the moment motion is detected at home.",
-      "learnMoreUrl": "#",
+      "details": {
+        "summary": "A compact motion sensor that watches rooms, halls, and entries and pushes alerts the moment unexpected movement is detected \u2014 pairs with the Sense Hub.",
+        "highlights": [
+          "Instant motion alerts on your phone",
+          "Compact, battery-powered design",
+          "Place on shelves, walls, or corners",
+          "Works with Wyze Sense Hub and routines"
+        ],
+        "specs": [
+          { "label": "Detection", "value": "PIR motion" },
+          { "label": "Power", "value": "Battery" },
+          { "label": "Hub", "value": "Requires Wyze Sense Hub" },
+          { "label": "Range", "value": "Room / hallway coverage" },
+          { "label": "Alerts", "value": "Push notifications" }
+        ]
+      },
       "image": "motion-sensor",
       "badge": null,
       "comparePrice": null,
@@ -169,7 +279,22 @@
       "category": "Sensors",
       "title": "Wyze Sense Hub",
       "description": "The central hub that connects and powers your Wyze sensors.",
-      "learnMoreUrl": "#",
+      "details": {
+        "summary": "The Sense Hub is the bridge between your sensors and the Wyze app \u2014 required whenever you add Sense Motion Sensors so alerts stay reliable at home.",
+        "highlights": [
+          "Connects Wyze Sense sensors to your network",
+          "Required when Motion Sensors are part of your system",
+          "Reliable local sensor communication",
+          "Compact plug-in design"
+        ],
+        "specs": [
+          { "label": "Role", "value": "Sensor bridge / hub" },
+          { "label": "Power", "value": "Plug-in" },
+          { "label": "Required with", "value": "Wyze Sense Motion Sensor" },
+          { "label": "Capacity", "value": "Multiple Sense sensors" },
+          { "label": "Price in bundle", "value": "FREE when required" }
+        ]
+      },
       "image": "sense-hub",
       "requiredWhen": ["motion-sensor"],
       "badge": null,
@@ -183,7 +308,22 @@
       "category": "Accessories",
       "title": "Wyze MicroSD Card (256GB)",
       "description": "Expand local storage with a Class 10, UHS-3 (U3) microSD card.",
-      "learnMoreUrl": "#",
+      "details": {
+        "summary": "High-speed 256GB microSD storage for continuous local recording on compatible Wyze cameras \u2014 keep clips at home even without a cloud plan.",
+        "highlights": [
+          "256GB capacity for days of local video",
+          "Class 10 / UHS-3 (U3) write speeds",
+          "Designed for continuous camera recording",
+          "Works alongside optional cloud plans"
+        ],
+        "specs": [
+          { "label": "Capacity", "value": "256GB" },
+          { "label": "Class", "value": "Class 10, UHS-3 (U3)" },
+          { "label": "Use case", "value": "Local camera recording" },
+          { "label": "Form factor", "value": "microSD" },
+          { "label": "Brand", "value": "Wyze" }
+        ]
+      },
       "image": "microsd-256",
       "badge": null,
       "comparePrice": null,
